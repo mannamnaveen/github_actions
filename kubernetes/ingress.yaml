@@ -5,7 +5,7 @@ metadata:
   namespace: nginx-demo
 spec:
   rules:
-  - host: "cplane.com"
+  - host: "www.cplane.com"
     http:
       paths:
       - path: /
