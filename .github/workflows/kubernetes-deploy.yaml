@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+env:
+  KUBE_CONFIG: ${{ secrets.KUBE_CONFIG}}
 
 jobs:
   deploy:
@@ -12,5 +14,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       # Add sheel shript to apply k8s manifests
+      - name: Deploy App(Deployment)
+        uses: actions-hub/kubectl@main
+        with:
+          args: apply -f kubernetes/deployment.yaml
+      
+      - name: Deploy App(Service)
+        uses: actions-hub/kubectl@main
+        with:
+          args: apply -f kubernetes/service.yaml
+
+      - name: Deploy App(Ingress)
+        uses: actions-hub/kubectl@main
+        with:
+          args: apply -f kubernetes/ingress.yaml
