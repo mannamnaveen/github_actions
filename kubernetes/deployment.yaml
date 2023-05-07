@@ -16,8 +16,8 @@ spec:
         app: nginx-demo
     spec:
       containers:
-      - image: nginx:1.23.4
+      - image: mialeev/nodeapp:latest
         name: nginx
         ports:
           - name: web
-            containerPort: 80
+            containerPort: 8080
