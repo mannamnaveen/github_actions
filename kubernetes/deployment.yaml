@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: game-deployment
+  namespace: game
 spec:
   # tells deployment to run 1 pods matching the template
   replicas: 1
