@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-demo-service
+            name: game
             port:
               number: 80

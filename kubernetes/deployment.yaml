@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: nginx-demo
-  name: nginx-demo-deployment
-  namespace: nginx-demo
+  name: game-deployment
 spec:
-  replicas: 2
+  # tells deployment to run 1 pods matching the template
+  replicas: 1
+  # create pods using the pod definition in this template
   selector:
     matchLabels:
-      app: nginx-demo
+      app: game
   template:
     metadata:
+      # name is automatically generated based on the deployment.name
       labels:
-        app: nginx-demo
+        app: game
     spec:
       containers:
-      - image: mialeev/nodeapp:latest
-        name: nginx
+      - name: tetris
+        image: lrakai/tetris:latest
         ports:
-          - name: web
-            containerPort: 8080
+        - containerPort: 80
